@@ -1,5 +1,8 @@
+import 'tachyons'
+
 import { html, render } from 'lit-html'
 export default (title, body) =>
+  body &&
   render(
     html`
     <div class="pa4 avenir green">

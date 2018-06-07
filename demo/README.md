@@ -7,4 +7,4 @@ yarn
 yarn start
 ```
 
-open index.js and uncomment and save one block code at a time.
+open 1.js and work down each exercise file 1 - 14.

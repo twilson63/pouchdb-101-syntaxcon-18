@@ -1,116 +1,41 @@
-import 'tachyons'
-import movies from './movies'
 import print from './print'
-import PouchDB from 'pouchdb-browser'
-import PouchDBFind from 'pouchdb-find'
-import PouchDBUpsert from 'pouchdb-upsert'
+import PouchDB from './setup'
 
-PouchDB.plugin(PouchDBFind)
-PouchDB.plugin(PouchDBUpsert)
+const __ = null // placeholder
 
-const doc = {
-  _id: 'ground-hog-day',
-  type: 'movie',
-  title: 'Groundhog Day',
-  year: '1983'
-}
+import ex1 from './1'
+import ex2 from './2'
+import ex3 from './3'
+import ex4 from './4'
+import ex5 from './5'
+import ex6 from './6'
+import ex7 from './7'
+import ex8 from './8'
+import ex9 from './9'
+import ex10 from './10'
+import ex11 from './11'
+import ex12 from './12'
+import ex13 from './13'
+import ex14 from './14'
 
 const _ = async () => {
   print('PouchDB Demo', { hello: 'Charleston' })
 
   // create pouchdb
-  const db = PouchDB('syntax-test')
-
-  // enable debugging - PouchDB.debug.enable('*')
-
-  // get info
-  // const info = await db.info()
-  // print('Database Info', info)
-
-  // add document
-  // const result = await db.post(doc)
-  // print(
-  //   `
-  // Added Document:
-  //
-  // ${JSON.stringify(doc, null, 2)}
-  //
-  // received:`,
-  //   result
-  // )
-
-  // get document
-  // const doc = await db.get('ground-hog-day')
-  // print('Doc', doc)
-
-  // update document
-  // const doc = await db.get('ground-hog-day')
-  // let updateDoc = {
-  //   type: 'movie',
-  //   title: 'Groundhog Day',
-  //   year: '1993',
-  //   _id: doc._id,
-  //   _rev: doc._rev
-  // }
-  // const updated = await db.put(updateDoc)
-  // print('updated doc', updated)
-
-  // list documents
-  // const docs = await db.allDocs()
-  // print('all docs', docs)
-
-  // const docs2 = await db.allDocs({ include_docs: true })
-  // print('all docs', docs2)
-
-  // remove documents
-  // const result = await db.remove(
-  //   '0ddbeb8b-d56a-49d6-99c2-2ad93abfcf50',
-  //   '1-4aa74709b0364974adc0b25553d36b0c'
-  // )
-  // print('removed doc', result)
-
-  // bulk updates
-  // const results = await db.bulkDocs(movies)
-  // print('bulk add/update', results)
-
-  // find document
-  // const results = await db.find({
-  //   selector: {
-  //     year: '1993'
-  //   }
-  // })
-  // print('Movies by Year', results)
-
-  // createIndex
-  // const result = await db.createIndex({
-  //   index: {
-  //     fields: ['year']
-  //   }
-  // })
-  // print('Movie Index', result)
-
-  // upsert document
-  // const result = await db.upsert('1', doc => {
-  //   return {
-  //     type: 'movie',
-  //     name: 'Ghostbusters',
-  //     year: '1963'
-  //   }
-  // })
-  // print('Upsert', result)
-  // const doc = await db.get('1')
-  // print('result', doc)
-
-  // compact db
-  // const result = await db.compact()
-  // print('compact', result)
-
-  // replicate db
-  // const result = await db.sync('https://twilson63.jrscode.cloud/demo')
-  // print('result', result)
-
-  // remove db
-  // const result = await db.destroy()
-  // print('Destroy Db', result)
+  const db = ex1(PouchDB, print)
+  // enable debugging
+  ex2(PouchDB, print)
+  ex3(db, print)
+  ex4(db, print)
+  ex5(db, print)
+  ex6(db, print)
+  ex7(db, print)
+  ex8(db, print)
+  ex9(db, print)
+  ex10(db, print)
+  ex11(db, print)
+  ex12(db, print)
+  ex13(db, print)
+  ex14(db, print)
 }
 _()
