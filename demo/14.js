@@ -1,3 +1,5 @@
-export default async (db, print) => {
-  print('Thank You!', null)
+const __ = null
+export default async print => {
+  // '🐶'
+  print('Thank You!', __)
 }

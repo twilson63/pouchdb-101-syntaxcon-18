@@ -1,8 +1,6 @@
 import print from './print'
 import PouchDB from './setup'
 
-const __ = null // placeholder
-
 import ex1 from './1'
 import ex2 from './2'
 import ex3 from './3'
@@ -21,10 +19,8 @@ import ex14 from './14'
 const _ = async () => {
   print('PouchDB Demo', { hello: 'Charleston' })
 
-  // create pouchdb
-  const db = ex1(PouchDB, print)
-  // enable debugging
-  ex2(PouchDB, print)
+  const db = await ex1(PouchDB, print) // create pouchdb
+  ex2(PouchDB, print) // enable debugging
   ex3(db, print)
   ex4(db, print)
   ex5(db, print)
@@ -36,6 +32,6 @@ const _ = async () => {
   ex11(db, print)
   ex12(db, print)
   ex13(db, print)
-  ex14(db, print)
+  ex14(print)
 }
 _()

@@ -2,7 +2,7 @@
  * Create Database
  *
  */
-const prop = (key, object) => (object[key] ? object[key] : 'Not Found')
+const prop = (key, object) => (object && object[key] ? object[key] : null)
 const __ = null
 export default async (PouchDB, print) => {
   /* TODO: Create DB */

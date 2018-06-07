@@ -6,7 +6,7 @@ const doc = {
   year: '1983'
 }
 
-export default (db, print) => {
+export default async (db, print) => {
   // add document
   const result = __
 
