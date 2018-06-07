@@ -8,76 +8,109 @@ import PouchDBUpsert from 'pouchdb-upsert'
 PouchDB.plugin(PouchDBFind)
 PouchDB.plugin(PouchDBUpsert)
 
-const doc = { type: 'movie', title: 'Groundhog Day', year: '1983' }
-
-print('PouchDB Demo', { hello: 'Columbia' })
-
-// create pouchdb
-// const db = PouchDB('os101')
-
-// enable debugging - PouchDB.debug.enable('*')
-
-// get info
-// db.info().then(info => print('Database Info', info))
-
-// add document
-// db.post(doc).then(res => print('Added Document', res))
-
-// get document
-//db.get('6ea5038a-96ec-41ae-b7cc-3c8900799a21').then(doc => print('Doc', doc))
-
-// update document
-let updateDoc = {
+const doc = {
+  _id: 'ground-hog-day',
   type: 'movie',
   title: 'Groundhog Day',
-  year: '1993',
-  _id: '6ea5038a-96ec-41ae-b7cc-3c8900799a21',
-  _rev: '1-87a7b0540be04f7eaf95ec3cfab9577a'
+  year: '1983'
 }
-// db.put(updateDoc).then(res => print('updated doc', res))
 
-// list documents
-// db.allDocs().then(res => print('all docs', res))
-// db.allDocs({ include_docs: true }).then(res => print('all docs', res))
+const _ = async () => {
+  print('PouchDB Demo', { hello: 'Charleston' })
 
-// remove documents
-// db.remove(
-//   '6ea5038a-96ec-41ae-b7cc-3c8900799a21',
-//   '2-5b2521a7cf5b41a8840f9183a71e85a2'
-// )
+  // create pouchdb
+  const db = PouchDB('syntax-test')
 
-// bulk updates
-// db.bulkDocs(movies).then(res => print('bulk add/update', res))
+  // enable debugging - PouchDB.debug.enable('*')
 
-// find document
-// db
-//   .find({
-//     selector: {
-//       year: '1993'
-//     }
-//   })
-//   .then(res => print('Movies by Year', res))
+  // get info
+  // const info = await db.info()
+  // print('Database Info', info)
 
-// createIndex
-// db
-//   .createIndex({
-//     index: {
-//       fields: ['year']
-//     }
-//   })
-//   .then(res => print('Movie Index', res))
+  // add document
+  // const result = await db.post(doc)
+  // print(
+  //   `
+  // Added Document:
+  //
+  // ${JSON.stringify(doc, null, 2)}
+  //
+  // received:`,
+  //   result
+  // )
 
-// upsert document
-// db
-//   .upsert('1', doc => {
-//     return {
-//       type: 'movie',
-//       name: 'Ghostbusters',
-//       year: '1963'
-//     }
-//   })
-//   .then(res => print('Upsert', res))
-// db.get('1').then(res => print('result', res))
+  // get document
+  // const doc = await db.get('ground-hog-day')
+  // print('Doc', doc)
 
-// remove db
-// db.destroy().then(res => print('Destroy Db', res))
+  // update document
+  // const doc = await db.get('ground-hog-day')
+  // let updateDoc = {
+  //   type: 'movie',
+  //   title: 'Groundhog Day',
+  //   year: '1993',
+  //   _id: doc._id,
+  //   _rev: doc._rev
+  // }
+  // const updated = await db.put(updateDoc)
+  // print('updated doc', updated)
+
+  // list documents
+  // const docs = await db.allDocs()
+  // print('all docs', docs)
+
+  // const docs2 = await db.allDocs({ include_docs: true })
+  // print('all docs', docs2)
+
+  // remove documents
+  // const result = await db.remove(
+  //   '0ddbeb8b-d56a-49d6-99c2-2ad93abfcf50',
+  //   '1-4aa74709b0364974adc0b25553d36b0c'
+  // )
+  // print('removed doc', result)
+
+  // bulk updates
+  // const results = await db.bulkDocs(movies)
+  // print('bulk add/update', results)
+
+  // find document
+  // const results = await db.find({
+  //   selector: {
+  //     year: '1993'
+  //   }
+  // })
+  // print('Movies by Year', results)
+
+  // createIndex
+  // const result = await db.createIndex({
+  //   index: {
+  //     fields: ['year']
+  //   }
+  // })
+  // print('Movie Index', result)
+
+  // upsert document
+  // const result = await db.upsert('1', doc => {
+  //   return {
+  //     type: 'movie',
+  //     name: 'Ghostbusters',
+  //     year: '1963'
+  //   }
+  // })
+  // print('Upsert', result)
+  // const doc = await db.get('1')
+  // print('result', doc)
+
+  // compact db
+  // const result = await db.compact()
+  // print('compact', result)
+
+  // replicate db
+  // const result = await db.sync('https://twilson63.jrscode.cloud/demo')
+  // print('result', result)
+
+  // remove db
+  // const result = await db.destroy()
+  // print('Destroy Db', result)
+}
+_()
